@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block body %}
+    <article class="prose">
+        <header class="page-header">
+            <h1>{{ post.title }}</h1>
+            {% if post.publishedAt %}
+                <p class="meta">{{ post.publishedAt|date('Y-m-d') }}</p>
+            {% endif %}
+        </header>
+
+        <div class="content">
+            {{ post.content|raw }}
+        </div>
+
+        <p class="backlink">
+            <a href="{{ path('blog_index') }}">Back to Blog</a>
+        </p>
+    </article>
+{% endblock %}

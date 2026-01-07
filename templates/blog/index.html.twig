@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Blog · diskfield.nl{% endblock %}
+
+{% block body %}
+<article class="prose">
+    <h1>Blog</h1>
+    <p class="lead">
+        Writing about my experiences as I delve deeper into the rabbit hole of being a Keeper, and the occasional weird development stuff I encounter.
+    </p>
+
+    {% if posts is empty %}
+        <p>No posts yet.</p>
+    {% else %}
+        <div class="list">
+            {% for post in posts %}
+                <article class="card">
+                    <h2 class="card-title">
+                        <a href="{{ path('blog_show', { slug: post.slug }) }}">{{ post.title }}</a>
+                    </h2>
+
+                    <p class="meta">
+                        {{ post.publishedAt ? post.publishedAt|date('Y-m-d') : '' }}
+                    </p>
+                </article>
+            {% endfor %}
+        </div>
+    {% endif %}
+</article>
+{% endblock %}

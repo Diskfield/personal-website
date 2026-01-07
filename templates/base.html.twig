@@ -1,0 +1,42 @@
+{% include 'partials/_easteregg.html.twig' %}
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="dark light">
+
+    <title>{% block title %}diskfield.nl{% endblock %}</title>
+
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="{{ asset('styles/site.css') }}">
+
+    {% block head %}{% endblock %}
+</head>
+<body>
+
+<header class="site-header">
+    <div class="shell">
+        {% include 'partials/_nav.html.twig' %}
+    </div>
+</header>
+
+<main id="main" class="content">
+    <div class="shell">
+        {% block body %}{% endblock %}
+    </div>
+</main>
+
+<footer class="site-footer">
+    <div class="shell footer-inner">
+        <span>&copy; {{ "now"|date("Y") }} diskfield.nl</span>
+        <span class="footer-sep">·</span>
+        <a class="footer-link" href="https://github.com/Diskfield" rel="noopener">GitHub</a>
+        <span class="footer-sep">·</span>
+        <a class="footer-link" href="https://www.last.fm/user/Diskfield" rel="noopener">Last.fm</a>
+    </div>
+</footer>
+
+{% block scripts %}{% endblock %}
+</body>
+</html>

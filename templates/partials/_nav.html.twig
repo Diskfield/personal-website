@@ -1,0 +1,19 @@
+{% set currentRoute = app.request.attributes.get('_route') %}
+
+<nav class="nav" aria-label="Primary">
+    <div class="prompt" aria-label="Breadcrumb">
+        <span>
+            <span class="prompt-user">disk@host</span>
+            <span class="prompt-path">~/{{ 'blog' in currentRoute ? 'blog' : currentRoute }}</span>
+            <span class="prompt-caret">%</span>
+        </span>
+
+        <nav class="crumbs" aria-label="Sections">
+            <a href="{{ path('home') }}">home</a> /
+            <a href="{{ path('about') }}">about</a> /
+            <a href="{{ path('tooling') }}">tooling</a> /
+            <a href="{{ path('music') }}">music</a> /
+            <a href="{{ path('blog_index') }}">blog</a>
+        </nav>
+    </div>
+</nav>
